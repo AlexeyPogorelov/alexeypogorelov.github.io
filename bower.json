@@ -1,0 +1,23 @@
+{
+  "name": "cv",
+  "description": "cv",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+  ],
+  "authors": [
+    "Alexey Pogorelov"
+  ],
+  "license": "no license",
+  "homepage": "https://github.com/alexeypogorelov/cv",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
