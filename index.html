@@ -1,206 +1,263 @@
 <!DOCTYPE html>
-<html><head>
+<html>
+	<head>
 		<meta charset="utf-8">
 		<title>Alexey Pogorelov</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="apple-touch-icon" sizes="180x180" href="src/img/icons/favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="src/img/icons/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="src/img/icons/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="src/img/icons/favicons/manifest.json">
+		<link rel="mask-icon" href="src/img/icons/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="theme-color" content="#ffffff">
+		<style type="text/css">
+			html {
+				font-size: 20px;
+			}
+
+			@media (max-width: 800px) {
+				html {
+					font-size: 16px;
+				}
+			}
+
+			body {
+				font: 1rem/1.6em Helvetica, Arial, sans-serif;
+				color: #939393;
+				text-align: center;
+			}
+
+			h1 {
+				color: #565656;
+				font-size: 2.8rem;
+				line-height: 1.2em;
+			}
+
+			h2 {
+				text-transform: uppercase;
+				position: relative;
+				color: #000;
+				margin: 2em 0;
+				font-size: 1.6em;
+				text-shadow: 4px 0 0 #fff, -4px 0 0 #fff, 0 4px 0 #fff, 0 -4px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
+			}
+
+			h2:before, h2:after {
+				content: '';
+				top: 50%;
+				position: absolute;
+				border: 1px solid #d4d2d1;
+				z-index: -1;
+			}
+
+			@media (max-width: 600px) {
+				h2:before, h2:after {
+					content: none;
+				}
+			}
+
+			h2:after {
+				left: 0;
+				right: 60%;
+				right: calc(50% + 200px);
+			}
+
+			h2:before {
+				right: 0;
+				left: 60%;
+				left: calc(50% + 200px);
+			}
+
+			h3 {
+				color: #565656;
+				text-transform: uppercase;
+			}
+
+			p, ul, h3, h4 {
+				text-align: left;
+			}
+
+			p {
+				margin: 1rem 0;
+			}
+
+			ul {
+				padding: 0;
+			}
+
+			li {
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			section {
+				margin: 5rem auto;
+				position: relative;
+				max-width: 1400px;
+				width: 80%;
+			}
+
+			@media (max-width: 800px) {
+				section {
+					width: 100%;
+					width: calc(100% - 20px);
+				}
+			}
+
+			.introduction img {
+				border: 4px solid #d4d2d1;
+				border-radius: 50%;
+				height: 280px;
+				width: 280px;
+			}
+
+			@media (max-width: 600px) {
+				.introduction img {
+					height: 100%;
+					width: 100%;
+				}
+			}
+
+			.introduction ul {
+				text-align: center;
+			}
+
+			.introduction li {
+				color: #6b6b6b;
+				margin: 0 0.3em;
+			}
+
+			.introduction li:first-child {
+				display: block;
+			}
+
+			.introduction strong {
+				text-transform: uppercase;
+			}
+
+			.introduction a {
+				color: inherit;
+			}
+
+			@media (max-width: 600px) {
+				.introduction ul {
+					text-align: left;
+				}
+				.introduction li {
+					margin-bottom: 1em;
+				}
+				.introduction a {
+					display: block;
+				}
+			}
+
+			.skills li {
+				color: #565656;
+				text-transform: uppercase;
+				margin-right: 0.5em;
+				font-weight: bold;
+			}
+
+			.skills li:after {
+				content: ';';
+			}
+
+			.experience li {
+				padding-right: 1em;
+				box-sizing: border-box;
+				width: 49%;
+			}
+
+			@media (max-width: 800px) {
+				.experience li {
+					width: 100%;
+				}
+			}
+
+			.socials li {
+				margin-right: 1rem;
+			}
+
+			.socials li img {
+				height: 2rem;
+			}
+		</style>
 	</head>
 	<body>
-
-		<style type="text/css">
-	* {
-		margin: 0;
-		padding: 0;
-	}
-
-	html {
-		height: 100%;
-		overflow: hidden;
-	}
-
-	canvas {
-		z-index: 1;
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	.caps {
-		z-index: 2;
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		opacity: 0;
-		animation: as 8s linear infinite;
-	}
-
-	.caps img {
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-
-	@keyframes as {
-		0% {
-			opacity: 0;
-		}
-		10% {
-			opacity: .3;
-		}
-		20% {
-			opacity: .1;
-		}
-		30% {
-			opacity: .5;
-		}
-		40% {
-			opacity: 0;
-		}
-		50% {
-			opacity: .8;
-		}
-		55% {
-			opacity: 0;
-		}
-		55% {
-			opacity: 0;
-		}
-	}
-
-	.frame {
-		z-index: 3;
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		background: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* FF3.6+ */
-		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(19%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.9))); /* Chrome,Safari4+ */
-		background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* Opera 12+ */
-		background: -ms-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* IE10+ */
-		background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 19%, rgba(0, 0, 0, 0.9) 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#00000000', endColorstr = '#e6000000', GradientType = 1); /* IE6-9 fallback on horizontal gradient */
-
-	}
-
-	.frame div {
-		position: absolute;
-		left: 0;
-		top: -20%;
-		width: 100%;
-		height: 20%;
-		background-color: rgba(0, 0, 0, .12);
-		box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-		animation: asd 12s linear infinite;
-	}
-
-	.frame div:nth-child(1) {
-		animation-delay: 0;
-	}
-
-	.frame div:nth-child(2) {
-		animation-delay: 4s;
-	}
-
-	.frame div:nth-child(3) {
-		animation-delay: 8s;
-	}
-
-	@keyframes asd {
-		0% {
-			top: -20%;
-		}
-		100% {
-			top: 100%;
-		}
-	}
-
-	h1 {
-		z-index: 3;
-		position: absolute;
-		font: bold 5vw/1.4em Arial, sans-serif;
-		left: 50%;
-		top: 50%;
-		margin-top: -100px;
-		width: 100%;
-		margin-left: -50%;
-		height: 200px;
-		text-align: center;
-		color: transparent;
-		text-shadow: 0 0 30px rgba(0, 0, 0, .5);
-		animation: asdd 2s linear infinite;
-	}
-
-	@keyframes asdd {
-		0% {
-			text-shadow: 0 0 30px rgba(0, 0, 0, .5);
-		}
-		33% {
-			text-shadow: 0 0 10px rgba(0, 0, 0, .4);
-		}
-		66% {
-			text-shadow: 0 0 20px rgba(0, 0, 0, .2);
-		}
-		100% {
-			text-shadow: 0 0 40px rgba(0, 0, 0, .8);
-		}
-	}
-</style>
-
-<h1>Why JavaScript? Because "Worse is Better"</h1>
-
-<div class="frame">
-	<div></div>
-	<div></div>
-	<div></div>
-</div>
-<div class="caps"><img src="http://ademilter.com/caps.png" alt=""></div>
-<canvas id="canvas" width="700" height="500"></canvas>
-
-<script type="text/javascript">
-	// js source http://codepen.io/moklick/pen/zKleC  
-
-	var Application = ( function () {
-			var canvas;
-			var ctx;
-			var imgData;
-			var pix;
-			var WIDTH;
-			var HEIGHT;
-			var flickerInterval;
-
-			var init = function () {
-				canvas = document.getElementById('canvas');
-				ctx = canvas.getContext('2d');
-				canvas.width = WIDTH = 700;
-				canvas.height = HEIGHT = 500;
-				ctx.fillStyle = 'white';
-				ctx.fillRect(0, 0, WIDTH, HEIGHT);
-				ctx.fill();
-				imgData = ctx.getImageData(0, 0, WIDTH, HEIGHT);
-				pix = imgData.data;
-				flickerInterval = setInterval(flickering, 30);
-			};
-
-			var flickering = function () {
-				for (var i = 0; i < pix.length; i += 4) {
-					var color = (Math.random() * 255) + 50;
-					pix[i] = color;
-					pix[i + 1] = color;
-					pix[i + 2] = color;
-				}
-				ctx.putImageData(imgData, 0, 0);
-			};
-
-			return {
-				init: init
-			};
-		}());
-
-		Application.init();
-</script>
-	
-</body></html>
+		<section class="introduction"><img src="src/img/avatar-250px.jpg" alt="Alexey Pogorelov">
+			<h1>Alexey Pogorelov</h1>
+			<ul>
+				<li><strong>Location: </strong><span>Ukraine, Cherkassy</span></li>
+				<li><strong>E-MAIL: </strong><a href="mailto:alexey.intertech@gmail.com">alexey.intertech@gmail.com</a></li>
+				<li><strong>Phone: </strong><a href="callto:+380638561317">+38 (063) 8561317</a></li>
+			</ul>
+		</section>
+		<section class="overview">
+			<h2>Overview</h2>
+			<p>I'm a professional JavaScript, Front-end (HTML5, CSS3) developer with 2+ years of experience. I have great skills in technologies related to JavaScript like AngularJS 1/2, NodeJS, jQuery.</p>
+			<p>I am constantly improving, analysing and presenting findings and recommendations on SEO, website performance and user behaviour. In addition, I make sure that design and usability are of the highest quality. I also have experience with single-page web applications and have wide set of skills with REST API's applications, performance profiling, and web app performance optimisation at scale.</p>
+			<p>If you are looking for web developer with design skills then I am the man.</p>
+		</section>
+		<section class="skills">
+			<h2>Skills</h2>
+			<ul>
+				<li>HTML5</li>
+				<li>CSS3</li>
+				<li>Javascript</li>
+				<li>jQuery</li>
+				<li>Angular JS</li>
+				<li>PHP</li>
+				<li>Canvas</li>
+				<li>User Experience & Design</li>
+				<li>Git</li>
+				<li>SVN</li>
+				<li>Sass/Less</li>
+				<li>Pug(Jade) Language</li>
+			</ul>
+		</section>
+		<section class="education">
+			<h2>Education</h2>
+			<h3>Master of Computer Applications (M.C.A.), Programming | Cherkasy National University named after Bogdan Khmelnitsky</h3>
+			<p>Master of Computer Applications (M.C.A.), Programming | Cherkasy National University named after Bogdan Khmelnitsky</p>
+			<p>2007 – 2012</p>
+		</section>
+		<section class="experience">
+			<h2>Experience</h2>
+			<ul>
+				<li>
+					<h3>Front End</h3>
+					<p>Freelance</p>
+					<p>January 2011 - May 2015 (4 years 5 months)</p>
+				</li>
+				<li>
+					<h3>Front End Technical Lead</h3>
+					<p>Front End Technical Lead Intertech</p>
+					<p>June 2015 - Present (1 year 6 months) Ukraine</p>
+				</li>
+			</ul>
+		</section>
+		<section class="projects">
+			<h2>Projects</h2>
+			<ul>
+				<li>
+					<h3>Application for Intertech sales department</h3>
+					<p>Node JS, jQuery, WebSocket, HTML5 Web Workers, Expresso JS, MailChimp</p>
+					<p>This project involved both front end and back end development. Back end part was responsible for logging and data storage. Front end part was written with jQuery and MVC patterns. For offline application usage HTML5 LocalStorage API was used. Front end and back end communication is based on REST.</p>
+				</li>
+				<li>
+					<h3>API based aplication</h3>
+					<p>Node JS, jQuery</p>
+					<p>This application is part of air tickets service. It was made for parsing XML data and convert it to JSON. The program can backup and restore request results with admin panel. The front end side gets JSON and build it for WEB UI.</p>
+				</li>
+			</ul>
+		</section>
+		<section class="socials">
+			<h2>socials</h2>
+			<ul>
+				<li><a href="https://ua.linkedin.com/in/pogorelovalexey"><img src="src/img/icons/linkedin-logo.svg"></a></li>
+				<li><a href="https://github.com/AlexeyPogorelov"><img src="src/img/icons/github-logo.svg"></a></li>
+				<li><a href="http://codepen.io/AlexeyPogorelov/"><img src="src/img/icons/codepen-logo.svg"></a></li>
+			</ul>
+		</section>
+	</body>
+</html>
