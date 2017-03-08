@@ -62,8 +62,10 @@ ul
 li
 	display: inline-block
 	vertical-align: top
-@media print
-	a
+a
+	&:hover
+		opacity: 0.6
+	@media print
 		text-decoration: none
 
 section
@@ -82,8 +84,8 @@ section
 	img
 		border: 4px solid #d4d2d1
 		border-radius: 50%
-		height: 250px
-		width: 250px
+		height: 280px
+		width: 280px
 		@media (max-width: $mobile-width)
 			height: auto
 			max-width: 250px
