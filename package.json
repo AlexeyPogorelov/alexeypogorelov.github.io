@@ -1,29 +1,33 @@
 {
-  "name": "cv",
-  "version": "0.0.1",
-  "description": "cv",
+  "name": "CV",
+  "version": "0.0.2",
+  "description": "CV",
   "main": "gulpfile.js",
-  "dependencies": {
-    "browser-sync": "^2.18.5",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-pug": "^3.2.0",
-    "gulp-sass": "^3.0.0",
-    "gulp-sourcemaps": "^1.9.1"
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^1.11.1",
+    "gulp-uglify": "^1.5.4"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexeypogorelov/cv.git"
+    "url": "git+https://github.com/AlexeyPogorelov/alexeypogorelov.github.io.git"
   },
-  "keywords": [],
+  "keywords": [
+    "CV"
+  ],
   "author": "Alexey Pogorelov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alexeypogorelov/cv/issues"
+    "url": "https://github.com/AlexeyPogorelov/alexeypogorelov.github.io/issues"
   },
-  "homepage": "https://github.com/alexeypogorelov/cv#readme"
+  "homepage": "https://github.com/AlexeyPogorelov/alexeypogorelov.github.io#readme"
 }

@@ -26,12 +26,15 @@ html(lang='en')
 		meta(name="twitter:card" content="summary")
 		meta(name="twitter:description" content="Front-end developer")
 
-		link(rel='stylesheet', href='css/main.css')
+		//- link(rel='stylesheet', href='css/main.css')
+		style
+			include ../dist/css/main.css
 
 	body
 		section.introduction
 			img(src="img/avatar-300px.jpg", alt="Alexey Pogorelov")
 			h1 Alexey Pogorelov
+			h4 (Front-end developer)
 			ul
 				li
 					strong Location: 
@@ -141,4 +144,3 @@ html(lang='en')
 				li
 					a(href="http://codepen.io/AlexeyPogorelov/")
 						img(src="img/icons/codepen-logo.svg")
-		//- script(src='js/main.js')

@@ -1,9 +1,11 @@
-var prod = false;
+var prod = true;
 
 var gulp = require('gulp'),
-	jade = require('gulp-pug'),
+	gutil = require('gulp-util'),
+	pug = require('gulp-pug'),
 	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
+	uglify = require('gulp-uglify'),
 	autoprefixer = require('gulp-autoprefixer'),
 	browserSync = require('browser-sync'),
 	reload = require('browser-sync').reload;
@@ -46,24 +48,28 @@ var serverConfig = {
 // SASS
 gulp.task('sass', function () {
 	var outputStyle = prod ? 'compressed' : 'expanded';
+	if (prod) {
+		sourcemaps = {};
+		sourcemaps.init = gutil.noop;
+		sourcemaps.write = gutil.noop;
+	}
 	gulp.src(path.src.style)
 		.pipe(sourcemaps.init())
 		.pipe(sass({
-			soursemap: true,
+			soursemap: !prod,
 			outputStyle: outputStyle
 		}).on('error', sass.logError))
-		.pipe(autoprefixer({browsers:['last 4 versions']}))
+		.pipe(autoprefixer({browsers:['last 2 versions']}))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(path.dist.css))
 		.pipe(reload({stream:true}));
 });
 
-// JADE
-gulp.task('jade', function(){
-	var pretty = prod ? false : true;
+// PUG
+gulp.task('pug', function(){
 	gulp.src(path.src.html)
-		.pipe(jade({
-			pretty: pretty
+		.pipe(pug({
+			pretty: !prod
 		}))
 		.pipe(gulp.dest(path.dist.html))
 		.pipe(reload({stream:true}));
@@ -71,7 +77,11 @@ gulp.task('jade', function(){
 
 // SCRIPTS
 gulp.task('scripts', function(){
+	if (!prod) {
+		uglify = gutil.noop;
+	}
 	gulp.src(path.src.js)
+		.pipe(uglify())
 		.pipe(gulp.dest(path.dist.js))
 		.pipe(reload({stream:true}));
 });
@@ -95,11 +105,11 @@ gulp.task('browser-sync', function() {
 
 // WATCH
 gulp.task('watch', function(){
-	gulp.watch(path.watch.html, ['jade']);
+	gulp.watch(path.watch.html, ['pug']);
 	gulp.watch(path.watch.style, ['sass']);
 	gulp.watch(path.watch.js, ['scripts']);
 	gulp.watch(path.watch.img, ['images']);
 });
 
 // DEFAULT
-gulp.task('default', ['sass', 'jade', 'scripts', 'images', 'fonts', 'browser-sync', 'watch']);
+gulp.task('default', ['sass', 'pug', 'scripts', 'images', 'fonts', 'browser-sync', 'watch']);
