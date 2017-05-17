@@ -12,11 +12,21 @@
 *.iml
 *.idea
 
+# System Files
 Thumbs.db
+.DS_Store
 
+*.sublime-workspace
 idea/*
 bower_components/*
 node_modules/*
 dist/*
 src/img/content/*
 templates/*
+
+# IDE - VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
