@@ -1,11 +1,11 @@
 $mobile-width: 800px
 
 html
-	font-size: 20px
-	@media (min-width: 2000px)
-		font-size: 40px
+	font-size: 18px
+
 	@media (max-width: $mobile-width)
-		font-size: 16px
+		font-size: 14px
+
 	@media print
 		font-size: 12pt
 
@@ -13,7 +13,6 @@ body
 	font: 1rem/1.6em Helvetica, Arial, sans-serif
 	color: #939393
 	text-align: center
-	// &::-webkit-scrollbar
 
 h1
 	color: #565656
@@ -66,18 +65,24 @@ ul
 li
 	display: inline-block
 	vertical-align: top
+
 a
+	color: #565656
+	font-weight: bold
+
 	&:hover
-		opacity: 0.6
+		opacity: .6
+
 	@media print
 		text-decoration: none
 
 section
 	margin: 5rem auto
+	max-width: 60rem
 	position: relative
 	width: 80%
+
 	@media (max-width: $mobile-width)
-		width: 100%
 		width: calc(100% - 2rem)
 
 //----------------------------------
