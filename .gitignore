@@ -20,9 +20,10 @@ Thumbs.db
 idea/*
 bower_components/*
 node_modules/*
-dist/*
+build/*
 src/img/content/*
 templates/*
+package-lock.json
 
 # IDE - VSCode
 .vscode/
