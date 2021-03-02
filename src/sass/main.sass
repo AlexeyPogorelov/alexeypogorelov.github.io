@@ -13,6 +13,7 @@ body
   font: 1rem/1.6em Helvetica, Arial, sans-serif
   color: #939393
   text-align: center
+  // animation: background 6s linear 0ms infinite both
 
 h1
   color: #565656
@@ -27,7 +28,7 @@ h2
   color: #000
   margin: 2em 0
   font-size: 1.6em
-  text-shadow: 4px 0 0 #fff, -4px 0 0 #fff, 0 4px 0 #fff, 0 -4px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
+  // text-shadow: 4px 0 0 #fff, -4px 0 0 #fff, 0 4px 0 #fff, 0 -4px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
   @media (max-width: $mobile-width)
     margin: 2em 0 1em
   &:before,
@@ -204,3 +205,21 @@ $linkContent: " [ " attr(href) " ] "
 //----------------------------------
 // END SOCIALS
 //----------------------------------
+
+@keyframes background
+  0%
+    background-color: #cfc
+
+  50%
+    background-color: #ccf
+
+  100%
+    background-color: #cfc
+
+@keyframes hue-rotation
+  0%
+    filter: hue-rotate(0deg)
+
+  100%
+    filter: hue-rotate(360deg)
+
