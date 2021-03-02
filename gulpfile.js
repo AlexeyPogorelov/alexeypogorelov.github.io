@@ -116,17 +116,15 @@ function server() {
 }
 
 // DEFAULT
-const build = () => {
-  return series(clean, sass, images, pug);
-}
-gulp.task("default", build);
+const build = series(clean, sass, images, pug);
 
 // WATCH
 function watch() {
   server();
-  gulp.watch("src/**/*").on('change', series(build(), browserSync.reload));
+  build();
+  gulp.watch("src/**/*").on('change', series(build, browserSync.reload));
 }
 
 exports.watch = watch;
-exports.default = build();
+exports.default = build;
 
