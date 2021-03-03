@@ -24,7 +24,8 @@ var path = {
     js: "src/js/*.js",
     style: "src/sass/main.sass",
     cssEntry: "dist/css/main.css",
-    img: "../../src/img/",
+    img: "src/img/**/*.*",
+    imgRelative: "../../src/img/",
     fonts: "src/fonts/**/*.*",
   },
   watch: {
@@ -97,17 +98,15 @@ function scripts() {
 function images() {
   return gulp
     .src(path.src.cssEntry)
-    .pipe(gulpBase64(path.src.img))
+    .pipe(gulpBase64(path.src.imgRelative))
     .pipe(gulp.dest(path.dist.css));
 }
 
-// FONTS
-function fonts() {
-  return gulp.task(function fonts() {
-    gulp
-      .src(path.src.fonts)
-      .pipe(gulp.dest(path.dist.fonts));
-  });
+// ASSETS
+function assets() {
+  return gulp
+      .src(path.src.img)
+      .pipe(gulp.dest(path.dist.img));
 }
 
 // SERVER
@@ -116,7 +115,7 @@ function server() {
 }
 
 // DEFAULT
-const build = series(clean, sass, images, pug);
+const build = series(clean, sass, images, pug, assets);
 
 // WATCH
 function watch() {

@@ -1,3 +1,7 @@
+- var isProduction = process.env.NODE_ENV === 'production';
+- var domain = isProduction ? 'https://alexeypogorelov.github.io/' : '/';
+- var imgRoot = domain + (process.env.NODE_ENV === 'production' ? 'src/img/' : 'img/');
+
 doctype html
 html(lang='en')
   head
@@ -8,21 +12,23 @@ html(lang='en')
     meta(name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no")
 
     //- generate image here http://realfavicongenerator.net/
-    link(rel="apple-touch-icon", sizes="180x180", href="img/favicons/apple-touch-icon.png")
-    link(rel="icon", type="image/png", href="img/favicons/favicon-32x32.png", sizes="32x32")
-    link(rel="icon", type="image/png", href="img/favicons/favicon-16x16.png", sizes="16x16")
-    link(rel="mask-icon", href="img/favicons/safari-pinned-tab.svg", color="#5bbad5")
-    meta(name="theme-color", content="#ffffff")
+    link(rel="apple-touch-icon" sizes="180x180" href=imgRoot + "favicons/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href=imgRoot + "favicons/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href=imgRoot + "favicons/favicon-16x16.png")
+    link(rel="manifest" href=imgRoot + "favicons/site.webmanifest")
+    link(rel="mask-icon", href=imgRoot + "favicons/safari-pinned-tab.svg", color="#fea100")
+    meta(name="msapplication-TileColor", content="#da532c")
+    meta(name="theme-color", content="#f1b887")
 
     //- open graph
     meta(property="og:type" content="website")
     meta(property="og:title" content="Alexey Pogorelov")
     meta(property="og:description" content="Front-end developer")
-    meta(property="og:image" content="img/avatar-300px.jpg")
-    meta(property="og:url" content="https://alexeypogorelov.github.io/")
-    meta(name="twitter:image" content="img/avatar-300px.jpg")
+    meta(property="og:image" content=imgRoot + "avatar-300px.jpg")
+    meta(property="og:url" content=domain)
+    meta(name="twitter:image" content=imgRoot + "avatar-300px.jpg")
     meta(name="twitter:title" content="Alexey Pogorelov")
-    meta(name="twitter:url" content="https://alexeypogorelov.github.io/")
+    meta(name="twitter:url" content=domain)
     meta(name="twitter:card" content="summary")
     meta(name="twitter:description" content="Front-end developer")
 
@@ -35,7 +41,7 @@ html(lang='en')
 
       .introduction__headers
         h1 Alexey Pogorelov
-        h4 (JavaScript developer)
+        h4 (LEAD Software Engineer)
 
       ul.introduction
         li
@@ -52,7 +58,7 @@ html(lang='en')
           a(href="skype:alexey.pogorelov.music") alexey.pogorelov.music
 
       h2 Overview
-      p I'm a professional JavaScript developer with 5+ years of experience. I have superb skills in technologies related to JavaScript like Angular, React, NodeJS, jQuery, etc...
+      p I'm a professional JavaScript developer with 6+ years of experience. I have superb skills in technologies related to JavaScript like Angular, React, NodeJS, jQuery, etc...
       p I was a part of 10+ projects as either a front end or a back end developer and had a lot of experience in creating single-page web applications and REST APIs for various web products. I am always searching for the best practices and cutting edge technologies to be a more productive and skilled developer and get my code quality as high as I can. I'm also a big fan of the UX/UI design industry, so I can help to create usable and visually-appealing interfaces. In addition, I can do performance reviews, and web app optimizations to make sure that the user will get the best experience and your app, the best conversion.
       p My portfolio speaks for itself. If you are looking for a web developer with design skills then I am the man.
 
@@ -117,100 +123,90 @@ html(lang='en')
           p March 2020 - Present
 
     section.projects
+
+      mixin slider(images, id)
+        .slider
+          each src, index in images
+            input(type="radio", name=id, checked=index === 0)
+          .slider__wrapper
+            each src, index in images
+              img(src=imgRoot + 'projects/' + src, loading=index === 0 ? 'eager' : 'lazy')
+
+      mixin project(title, url, images)
+        li.project
+          if images
+            .project__slider
+              +slider(images, title)
+          .project__info
+            a(href=url target="_blank")
+              h3= title
+            block
+
       h2 Projects
 
       ul
 
-        li
-          h3
-            a(href="https://www.groupon.com/" target="_blank") Groupon
-          p Preact, Styled Components, Hooks
+        +project('Groupon', 'https://www.groupon.com/', ['meat.jpg', 'blevogue.jpg'])
+          h4 Preact, Styled Components, Hooks
           p Worked for Sphere software. I was with a booking team that is responsible for pre-purchase and post-purchase screens and the booking calendar.
 
-        li
-          h3
-            a(href="https://www.safervpn.com/" target="_blank") SaferVPN
-          p Laravel, Blade, Foundation, Bluesnap, React, Stripe
-          p Full stack development for SaferSoftware team. I'm happy to be a part of this project. SaferVPN is one of the best VPN services. The SaferVPN's mission is to provide secure, private, and uncensored Internet access to anyone, anywhere.
+        +project('SaferVPN', 'https://www.safervpn.com/', ['blevogue.jpg'])
+            h4 Laravel, Blade, Foundation, Bluesnap, React, Stripe
+            p Full stack development for SaferSoftware team. I'm happy to be a part of this project. SaferVPN is one of the best VPN services. The SaferVPN's mission is to provide secure, private, and uncensored Internet access to anyone, anywhere.
 
-        li
-          h3
-            a(href="https://www.perimeter81.com/" target="_blank") Perimeter 81
-          p React, Redux, Docker, Postman
+        +project('Perimeter 81', 'https://www.perimeter81.com/', ['meat.jpg'])
+          h4 React, Redux, Docker, Postman
           p Perimeter 81 allows users to host their own secure VPN box with a static IP address without the hassle of managing it and keeping it up-to-date ourselves. There aren’t any other solutions on the market that allow us to do this easily and cost-effectively.
 
-        li
-          h3
-            a(href="https://smartextreme.com/" target="_blank") Smart Extreme
-          p React, Node JS, MySQL, Docker
-          p Full stack development for SmartExtreme. This website allows you to find best time and place for active sports such as Windsurfing, Kitesurfing, Snowkiting, etc.
+        +project('Smart Extreme', 'https://smartextreme.com/', ['meat.jpg'])
+          h4 React, Node JS, MySQL, Docker
+          p Full stack development for SmartExtreme. This websloading="lazy"ite allows you to find best time and place for active sports such as Windsurfing, Kitesurfing, Snowkiting, etc.
 
-        li
-          h3
-            a(href="http://www.leanfmtech.com/" target="_blank") LeanFM
-          p CSS3, jQuery, React, Three.js, Node JS, Knex
+        +project('LeanFM', 'http://www.leanfmtech.com/', ['meat.jpg'])
+          h4 CSS3, jQuery, React, Three.js, Node JS, Knex
           p Full stack development for LeanFM. LeanFM's Visual Information Hub provides facility managers with FAST and INTUITIVE access to information they need when needed to help prioritize work, understand problems and eliminate physical information search time. We integrate your management information systems and building automation feed with Building Information Models (BIM) to create the world's first visual information hub for facility managers and operators.
 
-        li
-          h3
-            a(href="https://ibox.ua/" target="_blank") iBOX
-          p CSS3, jQuery, React, Node JS, JSON schema
+        +project('iBOX', 'https://ibox.ua/', ['meat.jpg'])
+          h4 CSS3, jQuery, React, Node JS, JSON schema
           p
             | Full stack development for 
             a(href='http://www.perevorot.com/' target="_blank") Perevorot.
             |  iBOX - fastest and easiest way to pay.
 
-        li
-          h3
-            a(href="https://www.appysaude.co.ao/" target="_blank") APPY
-          p CSS3, jQuery, Angular 4, Google Maps API
+        +project('APPY', 'https://www.appysaude.co.ao/', ['meat.jpg'])
+          h4 CSS3, jQuery, Angular 4, Google Maps API
           p Front end development for 
             a(href='http://www.perevorot.com/' target="_blank") Perevorot.
 
-        li
-          h3
-            a(href="http://makemeat.com/" target="_blank") MAKE MEAT
-          p CSS3, jQuery, Jade, Laravel
+        +project('MAKE MEAT', 'http://makemeat.com/', ['meat.jpg'])
+          h4 CSS3, jQuery, Jade, Laravel
           p Front-end development for design agency. Best part is interactive 3d tiles. The site is adapted for desktops and mobile devices.
 
-        li
-          h3
-            a(href="http://ditchclothing.com/" target="_blank") DITCH CLOTHING
-          p SASS, Jade, jQuery, Laravel
+        +project('DITCH CLOTHING', 'http://ditchclothing.com/', ['meat.jpg'])
+          h4 SASS, Jade, jQuery, Laravel
           p DITCH is a high street brand founded in 2010 in Kiev, Ukraine. The site is simple but has elegant design. Fully responsive and optimized for mobile devices.
 
-        li
-          h3
-            a(href="https://bambook.academy/" target="_blank") BAMBOOK ACADEMY
-          p SASS, Jade, jQuery, Laravel
+        +project('BAMBOOK ACADEMY', 'https://bambook.academy/', ['meat.jpg'])
+          h4 SASS, Jade, jQuery, Laravel
           p This multi page website has lots of stunning animations made with WOW.js and animate.css <br /> It worth mentioning that AJAX was used to make forms work without a page reload and to optimize data transmission as it has great impact on user experience.
 
-        li
-          h3
-            a(href="https://www.getleaf.co/" target="_blank") Grow with LEAF
-          p SASS, Jade, jQuery, Video API
+        +project('Grow with LEAF', 'https://www.getleaf.co/', ['meat.jpg'])
+          h4 SASS, Jade, jQuery, Video API
           p A simple landing page with an interactive map. YouTube API and HTML5 video were used in this project. Eye catching thing is a fully interactive map. The page is fully responsive and adapted for mobile devices.
 
-        li
-          h3
-            a(href="http://blevogue.com/" target="_blank") BLEVOGUE
-          p SASS, Jade, jQuery, Laravel
+        +project('BLEVOGUE', 'http://blevogue.com/', ['meat.jpg'])
+          h4 SASS, Jade, jQuery, Laravel
           p This project involved creation of custom parallax scroll effect. As there are lots of moving objects when you move though the page, JavaScript code which creates the parallax effect must be well optimized and efficient.
 
-        li
-          h3
-            a(href="http://meatstudies.com/" target="_blank") MEAT Studies
-          p SASS, Jade, jQuery, Laravel
+        +project('MEAT Studies', 'http://meatstudies.com/', ['meat.jpg'])
+          h4 SASS, Jade, jQuery, Laravel
           p This multi page website has lots of stunning animations made with WOW.js and animate.css
 
-        li
-          h3 Application for Intertech sales department
-          p Node JS, jQuery, WebSocket, HTML5 Web Workers, Expresso JS, MailChimp
+        +project('Application for Intertech sales department', '', ['meat.jpg'])
+          h4 Node JS, jQuery, WebSocket, HTML5 Web Workers, Expresso JS, MailChimp
           p This project involved both front end and back end development. Back end part was responsible for logging and data storage. Front end part was written with jQuery and MVC patterns. For offline application usage HTML5 LocalStorage API was used. Front end and back end communication is based on REST.
 
-        li
-          h3 API based aplication (aavia.ua)
-          p Node JS, jQuery
+        +project('API based aplication (aavia.ua)', 'Node JS, jQuery', ['meat.jpg'])
           p This application is part of air tickets service. It was made for parsing XML data and convert it to JSON. The program can backup and restore request results with admin panel. The front end side gets JSON and build it for WEB UI.
           p The project is no longer exist 😞
 
@@ -227,15 +223,15 @@ html(lang='en')
             include ./img/icons/github-logo.svg
 
         li
-          a(href="http://codepen.io/AlexeyPogorelov/" target="_blank")
+          a(href="http://codepen.io/AlexeyPogorelov" target="_blank")
             include ./img/icons/codepen-logo.svg
 
         li
-          a(href="https://www.instagram.com/pogorelov_music/" target="_blank")
+          a(href="https://www.instagram.com/pogorelov_music" target="_blank")
             include ./img/icons/instagram-logo.svg
 
         li
-          a(href="https://www.youtube.com/user/AlexHookMusic/" target="_blank")
+          a(href="https://www.youtube.com/user/AlexHookMusic" target="_blank")
             include ./img/icons/youtube-logo.svg
 
         li

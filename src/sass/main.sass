@@ -109,6 +109,42 @@ section
     margin: 0
     width: 100%
 
+.slider
+  overflow: hidden
+  text-align: center
+  width: 18rem
+  img
+    width: 18rem
+  input
+    position: relative
+    top: 8rem
+    width: 12px
+    z-index: 1
+    &:before,
+    &:after
+      border-radius: 50%
+      cursor: pointer
+      display: block
+    &:before
+      background: #aaa
+      content: ''
+      height: 12px
+      width: 12px
+    &:checked:after
+      background: #fff
+      content: ''
+      height: 8px
+      margin-left: 2px
+      margin-top: -10px
+      width: 8px
+  &__wrapper
+    display: flex
+    transition: transform 300ms ease-out
+  @for $i from 0 through 5
+    *:checked:nth-child(#{$i + 1}) ~ &__wrapper
+      transform: translate(#{$i * -100%}, -20px)
+
+
 //----------------------------------
 // INTRODUCTION
 //----------------------------------
@@ -199,9 +235,20 @@ section
 // PROJECTS
 //----------------------------------
 $linkContent: " [ " attr(href) " ] "
+
 .projects
-  li
-    display: block
+  // h2
+    margin-bottom: 2em
+
+.project
+  display: flex
+  margin-top: 3rem
+
+  &__slider
+    padding-right: 2rem
+  &__info
+    h3
+      margin-top: 0
 
   @media print
     a
