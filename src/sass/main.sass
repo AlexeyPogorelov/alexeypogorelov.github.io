@@ -1,5 +1,8 @@
 $mobile-width: 800px
 
+*
+  box-sizing: border-box
+
 html
   font-size: 18px
 
@@ -13,12 +16,17 @@ body
   font: 1rem/1.6em Helvetica, Arial, sans-serif
   color: #939393
   text-align: center
-  // animation: background 6s linear 0ms infinite both
+  @media screen
+    background-image: radial-gradient(circle, #f1b887 0%, #ffd79b 100%)
+    // background-image: radial-gradient(circle, #ffb6c5 0%, #9bacff 100%)
+    // animation: background 16s linear 0ms infinite both
 
 h1
   color: #565656
   font-size: 2.8rem
   line-height: 1.2em
+  letter-spacing: 0.15em
+  text-transform: uppercase
   @media (max-width: $mobile-width)
     font-size: 2rem
 
@@ -26,9 +34,8 @@ h2
   text-transform: uppercase
   position: relative
   color: #000
-  margin: 2em 0
+  margin: 2em 0 1em
   font-size: 1.6em
-  // text-shadow: 4px 0 0 #fff, -4px 0 0 #fff, 0 4px 0 #fff, 0 -4px 0 #fff, 2px 2px #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff;
   @media (max-width: $mobile-width)
     margin: 2em 0 1em
   &:before,
@@ -51,6 +58,7 @@ h2
 
 h3
   color: #565656
+  margin: 2em 0 1em
   text-transform: uppercase
   a
     color: inherit
@@ -78,38 +86,60 @@ a
     text-decoration: none
 
 section
-  margin: 5rem auto
+  margin: 0 auto
+  background-color: #fff
   max-width: 60rem
-  position: relative
   width: 80%
 
+  @media screen
+    box-shadow: 0 .9rem 2rem -.5rem #0004
+    margin-bottom: 5rem
+    margin-top: 5rem
+    padding: 6rem 8%
+
   @media (max-width: $mobile-width)
-    width: calc(100% - 2rem)
+    margin-bottom: 2rem
+    margin-top: 2rem
+    padding: 2rem
+    width: calc(100% - 1rem)
+
+  @media print
+    width: 100%
 
 //----------------------------------
 // INTRODUCTION
 //----------------------------------
 .introduction
+  text-align: center
+
+  @media (max-width: $mobile-width)
+    text-align: left
+
   &__image, img
     background: inline("avatar-300px.jpg") 50% / cover
+    margin-bottom: 1rem
     display: inline-block
     border: 4px solid #d4d2d1
     border-radius: 50%
     height: 14rem
     width: 14rem
+
     @media (max-width: $mobile-width)
       height: 15.6rem
       width: 15.6rem
-  h1
-    margin-bottom: 0
-  h4
-    text-align: center
-    margin: 0 0 3em
-    font-weight: normal
-  ul
-    text-align: center
-    @media (max-width: $mobile-width)
-      text-align: left
+
+    @media print
+      display: none
+
+  &__headers
+    h1
+      margin-bottom: 0
+    h4
+      font-weight: normal
+      margin: .1em 0 3em
+      text-align: center
+      text-transform: uppercase
+
   li
     color: #6b6b6b
     margin: 0 0.3em
@@ -130,6 +160,7 @@ section
 // SKILLS
 //----------------------------------
 .skills
+  text-align: left
   li
     color: #565656
     text-transform: uppercase
@@ -186,10 +217,14 @@ $linkContent: " [ " attr(href) " ] "
 // SOCIALS
 //----------------------------------
 .socials
+  text-align: center
+  margin-top: 4rem
+
   li
-    margin: 0 2rem 1rem 0
+    margin: 0 1rem 1rem
     img, svg
       width: 2rem
+
   @media print
     a
       text-decoration: none
@@ -208,18 +243,11 @@ $linkContent: " [ " attr(href) " ] "
 
 @keyframes background
   0%
-    background-color: #cfc
+    background-position: 0 0;
 
   50%
-    background-color: #ccf
+    background-position: 1000px 1000px;
 
   100%
-    background-color: #cfc
-
-@keyframes hue-rotation
-  0%
-    filter: hue-rotate(0deg)
-
-  100%
-    filter: hue-rotate(360deg)
+    background-position: 0 0;
 

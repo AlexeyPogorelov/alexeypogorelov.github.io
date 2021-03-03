@@ -30,13 +30,14 @@ html(lang='en')
       include ../dist/css/main.css
 
   body
-    section.introduction
+    section
       .introduction__image
 
-      h1 Alexey Pogorelov
-      h4 (JavaScript developer)
+      .introduction__headers
+        h1 Alexey Pogorelov
+        h4 (JavaScript developer)
 
-      ul
+      ul.introduction
         li
           strong Location: 
           a(href="https://www.google.com.ua/maps/place/%D0%A7%D0%B5%D1%80%D0%BA%D0%B0%D1%81%D1%81%D1%8B,+%D0%A7%D0%B5%D1%80%D0%BA%D0%B0%D1%81%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C/@49.4310824,31.9787417,12z/data=!3m1!4b1!4m5!3m4!1s0x40d14b866064977f:0xf8dce723a9cbb5d8!8m2!3d49.444433!4d32.059767?hl=ru" target="_blank") Ukraine, Cherkassy
@@ -50,15 +51,13 @@ html(lang='en')
           strong Skype: 
           a(href="skype:alexey.pogorelov.music") alexey.pogorelov.music
 
-    section.overview
       h2 Overview
       p I'm a professional JavaScript developer with 5+ years of experience. I have superb skills in technologies related to JavaScript like Angular, React, NodeJS, jQuery, etc...
       p I was a part of 10+ projects as either a front end or a back end developer and had a lot of experience in creating single-page web applications and REST APIs for various web products. I am always searching for the best practices and cutting edge technologies to be a more productive and skilled developer and get my code quality as high as I can. I'm also a big fan of the UX/UI design industry, so I can help to create usable and visually-appealing interfaces. In addition, I can do performance reviews, and web app optimizations to make sure that the user will get the best experience and your app, the best conversion.
       p My portfolio speaks for itself. If you are looking for a web developer with design skills then I am the man.
 
-    section.skills
       h2 Skills
-      ul
+      ul.skills
         li JavaScript / TypeScript
         li User Experience & Design
         li Node JS
@@ -75,15 +74,14 @@ html(lang='en')
         li Vagrant / Docker
         li Agile / Scrum / Kanban
 
-    section.education
+    section
       h2 Education
       h3 Master of Computer Applications (M.C.A.), Programming | Cherkasy National University named after Bogdan Khmelnitsky
       p Master of Computer Applications (M.C.A.), Programming | Cherkasy National University named after Bogdan Khmelnitsky
       p 2007 – 2012
 
-    section.experience
       h2 Experience
-      ul
+      ul.experience
         li
           h3 Front End
           p Freelance. Worked for a local companies. Created few web based products using Joomla / WordPress and jQuery.
@@ -216,9 +214,9 @@ html(lang='en')
           p This application is part of air tickets service. It was made for parsing XML data and convert it to JSON. The program can backup and restore request results with admin panel. The front end side gets JSON and build it for WEB UI.
           p The project is no longer exist 😞
 
-    section.socials
+    section
       h2 socials
-      ul
+      ul.socials
 
         li
           a(href="https://ua.linkedin.com/in/pogorelovalexey" target="_blank")
