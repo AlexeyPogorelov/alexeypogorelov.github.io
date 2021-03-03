@@ -86,9 +86,10 @@ a
     text-decoration: none
 
 section
-  margin: 0 auto
   background-color: #fff
+  margin: 0 auto
   max-width: 60rem
+  page-break-before: always
   width: 80%
 
   @media screen
@@ -104,6 +105,8 @@ section
     width: calc(100% - 1rem)
 
   @media print
+    padding: 0
+    margin: 0
     width: 100%
 
 //----------------------------------
@@ -219,11 +222,15 @@ $linkContent: " [ " attr(href) " ] "
 .socials
   text-align: center
   margin-top: 4rem
+  @media print
+    text-align: left
 
   li
     margin: 0 1rem 1rem
     img, svg
       width: 2rem
+    @media print
+      display: block
 
   @media print
     a
