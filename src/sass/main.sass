@@ -17,7 +17,7 @@ body
   color: #939393
   text-align: center
   @media screen
-    background-image: radial-gradient(circle, #f1b887 0%, #ffd79b 100%)
+    background-image: radial-gradient(circle, #ff922e 0%, #ffd79b 100%)
     // background-image: radial-gradient(circle, #ffb6c5 0%, #9bacff 100%)
     // animation: background 16s linear 0ms infinite both
 
@@ -96,7 +96,7 @@ section
     box-shadow: 0 .9rem 2rem -.5rem #0004
     margin-bottom: 5rem
     margin-top: 5rem
-    padding: 6rem 8%
+    padding: 6rem 6%
 
   @media (max-width: $mobile-width)
     margin-bottom: 2rem
@@ -111,38 +111,52 @@ section
 
 .slider
   overflow: hidden
+  padding-bottom: 1rem
   text-align: center
   width: 18rem
   img
+    border: 3px solid #d4d2d1
     width: 18rem
   input
     position: relative
-    top: 8rem
-    width: 12px
+    top: 10.8rem
+    width: 1.2rem
     z-index: 1
     &:before,
     &:after
       border-radius: 50%
+      box-sizing: border-box
       cursor: pointer
       display: block
     &:before
-      background: #aaa
+      background: #eee
+      border: 1px solid #ccc
+      // box-shadow: inset 0 0 10px rgba(0,200,200,0.2)
       content: ''
-      height: 12px
-      width: 12px
-    &:checked:after
+      height: 1.2rem
+      width: 1.2rem
+      margin-top: -.2rem
+    &:after
+      content: ''
+      margin-left: .3rem
+      margin-top: -.9rem
+      height: .6rem
+      width: .6rem
       background: #fff
+      box-shadow: 0 0 10px rgba(0,0,0,0.2)
+    &:checked:after
+      background: #ff922e
       content: ''
-      height: 8px
-      margin-left: 2px
-      margin-top: -10px
-      width: 8px
+      margin-left: .3rem
+      margin-top: -.9rem
+      height: .6rem
+      width: .6rem
   &__wrapper
     display: flex
     transition: transform 300ms ease-out
-  @for $i from 0 through 5
+  @for $i from 0 through 7
     *:checked:nth-child(#{$i + 1}) ~ &__wrapper
-      transform: translate(#{$i * -100%}, -20px)
+      transform: translate(#{$i * -100%}, -1.2rem)
 
 
 //----------------------------------
@@ -158,7 +172,7 @@ section
     background: inline("avatar-300px.jpg") 50% / cover
     margin-bottom: 1rem
     display: inline-block
-    border: 4px solid #d4d2d1
+    border: 3px solid #d4d2d1
     border-radius: 50%
     height: 14rem
     width: 14rem
@@ -236,16 +250,15 @@ section
 //----------------------------------
 $linkContent: " [ " attr(href) " ] "
 
-.projects
-  // h2
-    margin-bottom: 2em
-
 .project
   display: flex
   margin-top: 3rem
 
   &__slider
     padding-right: 2rem
+    @media print
+      display: none
+
   &__info
     h3
       margin-top: 0
