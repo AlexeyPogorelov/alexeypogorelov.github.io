@@ -37,7 +37,7 @@ html(lang='en')
 
   body
     section
-      .introduction__image
+      img.introduction__image(src=imgRoot + 'avatar-300px.jpg' alt="Alexey Pogorelov")
 
       .introduction__headers
         h1 Alexey Pogorelov
@@ -59,7 +59,7 @@ html(lang='en')
 
       h2 Overview
       p I'm a professional JavaScript developer with 6+ years of experience. I have superb skills in technologies related to JavaScript like Angular, React, NodeJS, jQuery, etc...
-      p I was a part of 10+ projects as either a front end or a back end developer and had a lot of experience in creating single-page web applications and REST APIs for various web products. I am always searching for the best practices and cutting edge technologies to be a more productive and skilled developer and get my code quality as high as I can. I'm also a big fan of the UX/UI design industry, so I can help to create usable and visually-appealing interfaces. In addition, I can do performance reviews, and web app optimizations to make sure that the user will get the best experience and your app, the best conversion.
+      p I was a part of 50+ projects as either a front end or a back end developer and had a lot of experience in creating single-page web applications and REST APIs for various web products. I am always searching for the best practices and cutting edge technologies to be a more productive and skilled developer and get my code quality as high as I can. I'm also a big fan of the UX/UI design industry, so I can help to create usable and visually-appealing interfaces. In addition, I can do performance reviews, and web app optimizations to make sure that the user will get the best experience and your app, the best conversion.
       p My portfolio speaks for itself. If you are looking for a web developer with design skills then I am the man.
 
       h2 Skills
@@ -81,46 +81,47 @@ html(lang='en')
         li Agile / Scrum / Kanban
 
     section
-      h2 Education
-      h3 Master of Computer Applications (M.C.A.), Programming | Cherkasy National University named after Bogdan Khmelnitsky
-      p Master of Computer Applications (M.C.A.), Programming | Cherkasy National University named after Bogdan Khmelnitsky
-      p 2007 – 2012
-
-      h2 Experience
+      h2 Education / Experience
       ul.experience
         li
-          h3 Front End
-          p Freelance. Worked for a local companies. Created few web based products using Joomla / WordPress and jQuery.
-          p January 2011 - May 2015 (4 years 5 months)
+          h3 Cherkasy State Business College
+          p I graduated with a <b>Computer Science</b> degree, but I don't feel like I've learned how to program. I had a strong passion for writing code and creating applications using cutting edge technologies.
+          h4 September 2007 - January 2011 (3 years 5 months)
 
         li
-          h3 Front End Technical Lead
-          p Front End Technical Lead at 
+          h3 WEB Development as a hobby
+          p In this period, I developed a few projects for local companies. That was public catalogues and landing pages with the ability to sort, filter and structure information. The products were built by a combination of Joomla / WordPress and configurations for a few plugins. Also, I used existing jQuery libraries to solve some UI requirements. No coding challenges, just using third-party products to get all things done.
+          h4 January 2011 - May 2015 (4 years 5 months)
+
+        li
+          h3 Front End Technical Lead at 
             a(href='https://intertech.company/') Intertech. 
-          p I had a lot of experience creating landing pages and websites using HTML and CSS.
-          p June 2015 - January 2016 (1 year 6 months) Ukraine
+          p It was my first full-time job in the office. Intertech is a custom software development company that offers a wide range of e-commerce development services. The company offers online shops, B2B portals, reservation systems and other related solutions. At the beginning of working for the company in my responsibilities was to develop landing pages and websites using HTML and CSS. After several months I took part in a growing company by acting developers interviews and creating business offers for our clients. Besides that, I was responsible for choosing technologies, estimations, plannings, and more. My team was around 3 - 5 junior front end developers, and we completed 10+ project for a local market.
+          h4 June 2015 - January 2016 (1 year 6 months) Ukraine
 
         li
-          h3 WEB Developer
-          p I've been working on several new projects for 
+          h3 WEB Developer for the 
             a(href='http://www.perevorot.com/' target="_blank") Perevorot.
-          p January 2016 - January 2017
+          p In this period, I got a lot of experience working with backend technologies. I was a part of the full-stack team, and we built a few MVPs for a local startup. We worked in a small team including 3 - 4 developers, designer and project manager. This was a big leap for me as a professional WEB developer. I got a strong understanding how client/server interactions work, why the code structure is important, how to create code that easy to support and how to support someone else's code. Besides that, I got experience working in SCRUM environment.
+          h4 January 2016 - January 2017
 
         li
-          h3 Full Stack Developer
-          p JS and PHP developer at SaferSoftware team. I helped to create safervpn.com and perimeter81.com websites and was a part of the Perimeter81 front end application team.
-          p January 2017 - September 2019
+          h3 Full Stack Developer at 
+            a(href='https://www.safervpn.com/' target="_blank") SaferSoftware.
+          p JS and PHP developer at SaferSoftware team. I've been working on few projects including <a href='https://www.safervpn.com/' target="_blank">safervpn.com</a> and <a href='https://www.perimeter81.com/' target="_blank">perimeter81.com</a> websites and Perimeter81 front end application written using React. I worked in a great environment remotely and in Tel Aviv office with more that 10 members.
+          h4 January 2017 - September 2019
 
         li
-          h3 React Developer
-          p Worked for Sphere software.
-          p September 2019 - March 2020
+          h3 React Developer at 
+            a(href='https://www.sphereinc.com/' target="_blank") Sphere software.
+          p The team that I worked for included PM, QA and four front end developers. My role was to support front end app written using Preact. I can describe the environment as high professional and very motivated. I was fired after pandemic starts.
+          h4 September 2019 - March 2020
 
         li
-          h3 Front End Developer
-          p Working for 
-            a(href='http://agreed.io/' target="_blank") Agreed
-          p March 2020 - Present
+          h3 Front End Developer for 
+            a(href='http://agreed.io/' target="_blank") Agreed.
+          p This time I worked through Upwork directly for the product owners. I've been working with UI kit for the new SPA. Self management, the latest technologies stack, startup culture. I like to be a part of the growing product and always happy to improve it providing new ideas and quality code.
+          h4 March 2020 - February 2021
 
     section.projects
 
@@ -130,7 +131,7 @@ html(lang='en')
             input(type="radio", name=id, checked=index === 0)
           .slider__wrapper
             each src, index in images
-              img(src=imgRoot + 'projects/' + src, loading=index === 0 ? 'eager' : 'lazy')
+              img(src=imgRoot + 'projects/compressed/' + src, loading=index === 0 ? 'eager' : 'lazy')
 
       mixin project(title, url, images)
         li.project
@@ -138,7 +139,10 @@ html(lang='en')
             .project__slider
               +slider(images, title)
           .project__info
-            a(href=url target="_blank")
+            if url
+              a(href=url target="_blank")
+                h3= title
+            else
               h3= title
             block
 
@@ -146,69 +150,69 @@ html(lang='en')
 
       ul
 
-        +project('Groupon', 'https://www.groupon.com/', ['meat.jpg', 'blevogue.jpg'])
-          h4 Preact, Styled Components, Hooks
-          p Worked for Sphere software. I was with a booking team that is responsible for pre-purchase and post-purchase screens and the booking calendar.
+        +project('Groupon', 'https://www.groupon.com/', ['groupon-1.jpg', 'groupon-2.jpg', 'groupon-3.jpg'])
+          h4 Preact, Styled Components, Preact Hooks
+          p Groupon is an American global e-commerce marketplace connecting subscribers with local merchants by offering activities, travel, goods and services in 15 countries. I was a part of a booking team that is responsible for pre-purchase and post-purchase screens and the booking calendar. The important part was communication with the design team and product owners.
 
-        +project('SaferVPN', 'https://www.safervpn.com/', ['blevogue.jpg'])
-            h4 Laravel, Blade, Foundation, Bluesnap, React, Stripe
-            p Full stack development for SaferSoftware team. I'm happy to be a part of this project. SaferVPN is one of the best VPN services. The SaferVPN's mission is to provide secure, private, and uncensored Internet access to anyone, anywhere.
-
-        +project('Perimeter 81', 'https://www.perimeter81.com/', ['meat.jpg'])
+        +project('Perimeter 81', 'https://www.perimeter81.com/', ['perimeter81-1.jpg', 'perimeter81-2.jpg', 'perimeter81-3.jpg', 'perimeter81-4.jpg', 'perimeter81-5.jpg'])
           h4 React, Redux, Docker, Postman
-          p Perimeter 81 allows users to host their own secure VPN box with a static IP address without the hassle of managing it and keeping it up-to-date ourselves. There aren’t any other solutions on the market that allow us to do this easily and cost-effectively.
+          p Perimeter 81 is an Israeli cloud and network security company that develops secure remote networks, based on the zero trust architecture, for organizations. Its technology replaces legacy security appliances like VPNs and firewalls. Perimeter 81 allows users to host their own secure VPN box with a static IP address without the hassle of managing it and keeping it up-to-date ourselves. There aren’t any other solutions on the market that allow us to do this easily and cost-effectively. My goal was to create UI components for the SPA and some API integrations.
 
-        +project('Smart Extreme', 'https://smartextreme.com/', ['meat.jpg'])
+        +project('SaferVPN', 'https://www.safervpn.com/', ['safervpn-1.jpg', 'safervpn-2.jpg', 'safervpn-3.jpg', 'safervpn-4.jpg', 'safervpn-5.jpg'])
+            h4 Laravel, Blade, Foundation, Bluesnap, React, Stripe
+            p SaferVPN is one of the best VPN services. The SaferVPN's mission is to provide secure, private, and uncensored Internet access to anyone, anywhere. I did a full stack development working in small team included 3 - 5 persons. The hardest part for me was the pricing page. I did the integrations with payments systems and tracking services to get statistics and good user experience. I'm happy that I was a part of this project.
+
+        +project('Smart Extreme', 'https://smartextreme.com/')
           h4 React, Node JS, MySQL, Docker
-          p Full stack development for SmartExtreme. This websloading="lazy"ite allows you to find best time and place for active sports such as Windsurfing, Kitesurfing, Snowkiting, etc.
+          p Full stack development for SmartExtreme. This website allows you to find best time and place for active sports such as Windsurfing, Kitesurfing, Snowkiting, etc.
 
-        +project('LeanFM', 'http://www.leanfmtech.com/', ['meat.jpg'])
+        +project('LeanFM', 'http://www.leanfmtech.com/', ['leanfm-1.jpg', 'leanfm-2.jpg', 'leanfm-3.jpg'])
           h4 CSS3, jQuery, React, Three.js, Node JS, Knex
-          p Full stack development for LeanFM. LeanFM's Visual Information Hub provides facility managers with FAST and INTUITIVE access to information they need when needed to help prioritize work, understand problems and eliminate physical information search time. We integrate your management information systems and building automation feed with Building Information Models (BIM) to create the world's first visual information hub for facility managers and operators.
+          p LeanFM's Visual Information Hub provides facility managers with FAST and INTUITIVE access to information they need when needed to help prioritize work, understand problems and eliminate physical information search time. We integrate your management information systems and building automation feed with Building Information Models (BIM) to create the world's first visual information hub for facility managers and operators. I did UI for the WEB app using own state management library. LeanFM restricted to use third party code in their product.
 
-        +project('iBOX', 'https://ibox.ua/', ['meat.jpg'])
+        +project('iBOX', 'https://ibox.ua/', ['ibox-ua-1.jpg', 'ibox-ua-2.jpg', 'ibox-ua-3.jpg', 'ibox-ua-4.jpg', 'ibox-ua-5.jpg'])
           h4 CSS3, jQuery, React, Node JS, JSON schema
           p
             | Full stack development for 
             a(href='http://www.perevorot.com/' target="_blank") Perevorot.
-            |  iBOX - fastest and easiest way to pay.
+            |  iBOX - one of the largest network of payment terminals in Ukraine. I created front end for the <a href='https://ibox.ua/' _target="_blank">iBox</a> website, React app for the terminals and API service with ability to provide service and log transitions.
 
-        +project('APPY', 'https://www.appysaude.co.ao/', ['meat.jpg'])
+        +project('APPY', 'https://www.appysaude.co.ao/', ['appysaude-1.jpg', 'appysaude-2.jpg', 'appysaude-3.jpg', 'appysaude-4.jpg'])
           h4 CSS3, jQuery, Angular 4, Google Maps API
-          p Front end development for 
-            a(href='http://www.perevorot.com/' target="_blank") Perevorot.
+          p Front-end development using Angular. The site is adapted for desktops and mobile devices.
 
-        +project('MAKE MEAT', 'http://makemeat.com/', ['meat.jpg'])
+        +project('MAKE MEAT', 'http://makemeat.com/', ['meat-1.jpg', 'meat-2.jpg', 'meat-3.jpg', 'meat-4.jpg', 'meat-5.jpg', 'meat-6.jpg', 'meat-7.jpg'])
           h4 CSS3, jQuery, Jade, Laravel
           p Front-end development for design agency. Best part is interactive 3d tiles. The site is adapted for desktops and mobile devices.
 
-        +project('DITCH CLOTHING', 'http://ditchclothing.com/', ['meat.jpg'])
+        +project('DITCH CLOTHING', 'http://ditchclothing.com/')
           h4 SASS, Jade, jQuery, Laravel
-          p DITCH is a high street brand founded in 2010 in Kiev, Ukraine. The site is simple but has elegant design. Fully responsive and optimized for mobile devices.
+          p DITCH is a high street brand founded in 2010 in Kiev, Ukraine. The website that I created is simple but has elegant design. Good to mention that it is fully responsive and optimized for mobile devices.
 
-        +project('BAMBOOK ACADEMY', 'https://bambook.academy/', ['meat.jpg'])
+        +project('BAMBOOK ACADEMY', 'https://bambook.academy/', ['bambook-academy-1.jpg', 'bambook-academy-2.jpg', 'bambook-academy-3.jpg', 'bambook-academy-4.jpg', 'bambook-academy-5.jpg', 'bambook-academy-6.jpg', 'bambook-academy-7.jpg', 'bambook-academy-8.jpg'])
           h4 SASS, Jade, jQuery, Laravel
-          p This multi page website has lots of stunning animations made with WOW.js and animate.css <br /> It worth mentioning that AJAX was used to make forms work without a page reload and to optimize data transmission as it has great impact on user experience.
+          p Bambook Academy is a school that specialized in language courses of Polish and Czech. I created a multi-page website that has lots of stunning animations made with WOW.js and animate.css. It is worth mentioning that AJAX was used to make forms work without a page reload and to optimize data transmission as it dramatically impact user experience.
 
-        +project('Grow with LEAF', 'https://www.getleaf.co/', ['meat.jpg'])
+        +project('Grow with LEAF', 'https://www.getleaf.co/', ['getleaf-1.jpg', 'getleaf-2.jpg', 'getleaf-3.jpg', 'getleaf-4.jpg', 'getleaf-5.jpg'])
           h4 SASS, Jade, jQuery, Video API
-          p A simple landing page with an interactive map. YouTube API and HTML5 video were used in this project. Eye catching thing is a fully interactive map. The page is fully responsive and adapted for mobile devices.
+          p LEAF is a plug-n-plant system that automatically grows plants and food and is controlled by your smartphone. Think of it as a beautiful mini fridge that stocks itself with high quality, pesticide free, natural herbs and food. I created the simple landing page with an interactive map. I worked with YouTube API and HTML5 video to get video player work. The eye-catching thing is a fully interactive map. The page is fully responsive and adapted for mobile devices.
 
-        +project('BLEVOGUE', 'http://blevogue.com/', ['meat.jpg'])
+        +project('BLEVOGUE', 'http://blevogue.com/', ['blevogue-1.jpg', 'blevogue-2.jpg', 'blevogue-3.jpg', 'blevogue-4.jpg', 'blevogue-5.jpg', 'blevogue-6.jpg', 'blevogue-7.jpg', 'blevogue-8.jpg' ])
           h4 SASS, Jade, jQuery, Laravel
-          p This project involved creation of custom parallax scroll effect. As there are lots of moving objects when you move though the page, JavaScript code which creates the parallax effect must be well optimized and efficient.
+          p This fashion blog was implemented using a custom parallax scroll effect and photo slider with not usual behavior. As there are many moving objects when you scroll through the page, JavaScript code that creates the parallax effect must be well optimized and efficient. I worked on all of the UI and integration with third-party services.
 
-        +project('MEAT Studies', 'http://meatstudies.com/', ['meat.jpg'])
+        +project('MEAT Studies', 'http://meatstudies.com/', ['meatstudies-1.jpg', 'meatstudies-2.jpg', 'meatstudies-3.jpg', 'meatstudies-4.jpg', 'meatstudies-5.jpg', 'meatstudies-6.jpg', 'meatstudies-7.jpg', 'meatstudies-8.jpg' ])
           h4 SASS, Jade, jQuery, Laravel
-          p This multi page website has lots of stunning animations made with WOW.js and animate.css
+          p MEAT Studies is a creative education platform. It has both online and offline groups for beginners and advanced users. I was a part of this platform as a front end developer and a teacher. I taught HTML and CSS and the basics of web interface creation. The online platform is a multi-page website that has lots of stunning animations made with WOW.js and animate.css
 
-        +project('Application for Intertech sales department', '', ['meat.jpg'])
-          h4 Node JS, jQuery, WebSocket, HTML5 Web Workers, Expresso JS, MailChimp
-          p This project involved both front end and back end development. Back end part was responsible for logging and data storage. Front end part was written with jQuery and MVC patterns. For offline application usage HTML5 LocalStorage API was used. Front end and back end communication is based on REST.
-
-        +project('API based aplication (aavia.ua)', 'Node JS, jQuery', ['meat.jpg'])
-          p This application is part of air tickets service. It was made for parsing XML data and convert it to JSON. The program can backup and restore request results with admin panel. The front end side gets JSON and build it for WEB UI.
+        +project('API based aplication (aavia.ua)', null, ['aavia-1.jpg', 'aavia-2.jpg', 'aavia-3.jpg', 'aavia-4.jpg'])
+          h4 Node JS, jQuery
+          p This website helps our customers to get the cheapest flight tickets. The biggest feature is to compare prices for different dates. The UI part was written using jQuery templates and Bootstrap framework. The back end stands for parsing XML data and convert it to JSON. Also, it can store requests and orders and retrieve them in the personal cabinet. I worked on this project by myself. The only thing that I had is the business requirements from our client.
           p The project is no longer exist 😞
+
+        +project('Application for Intertech sales department')
+          h4 Node JS, jQuery, WebSocket, HTML5 Web Workers, Expresso JS, MailChimp
+          p This project involved both front end and back end development. The back end part was responsible for authentication, saving, and retrieving data. The front end part was written using jQuery and MVC patterns. To make the application available offline, I used LocalStorage and WebWorker APIs. Client/server communication are implemented using REST guidelines. I made the requirements and implementation without any help aside.
 
     section
       h2 socials
@@ -237,4 +241,8 @@ html(lang='en')
         li
           a(href="https://soundcloud.com/alexeypogorelov" target="_blank")
             include ./img/icons/soundcloud-logo.svg
+
+        li
+          a(href="https://www.upwork.com/o/profiles/users/~01f863094d8472f9a6/" target="_blank")
+            include ./img/icons/upwork-logo.svg
 
