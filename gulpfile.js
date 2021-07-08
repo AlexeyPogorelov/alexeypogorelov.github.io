@@ -82,7 +82,6 @@ function pug() {
       })
     )
     .pipe(gulp.dest(path.dist.html))
-  // .pipe(BrowserSync.reload);
 }
 
 // SCRIPTS
@@ -91,22 +90,21 @@ function scripts() {
     .src(path.src.js)
     .pipe(uglify())
     .pipe(gulp.dest(path.dist.js))
-  // .pipe(BrowserSync.reload);
 }
 
 // IMAGES
 function images() {
   return gulp
-    .src(path.src.cssEntry)
-    .pipe(gulpBase64(path.src.imgRelative))
-    .pipe(gulp.dest(path.dist.css));
+      .src(path.src.img)
+      .pipe(gulp.dest(path.dist.img));
 }
 
 // ASSETS
 function assets() {
   return gulp
-      .src(path.src.img)
-      .pipe(gulp.dest(path.dist.img));
+    .src(path.src.cssEntry)
+    .pipe(gulpBase64(path.src.imgRelative))
+    .pipe(gulp.dest(path.dist.css));
 }
 
 // SERVER
@@ -115,7 +113,7 @@ function server() {
 }
 
 // DEFAULT
-const build = series(clean, sass, images, pug, assets);
+const build = series(clean, sass, images, pug);
 
 // WATCH
 function watch() {
