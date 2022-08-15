@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/AlexeyPogorelov/alexeypogorelov.github.io/issues"
   },
-  "homepage": "https://github.com/AlexeyPogorelov/alexeypogorelov.github.io#readme"
+  "homepage": "https://github.com/AlexeyPogorelov/alexeypogorelov.github.io#readme",
+  "dependencies": {
+    "pug": "^3.0.2"
+  }
 }
