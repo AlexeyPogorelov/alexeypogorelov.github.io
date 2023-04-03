@@ -344,6 +344,21 @@ $linkContent: " [ " attr(href) " ] "
   &__info
     h3
       margin-top: 0
+    ul
+      padding-left: 0.8rem
+    li
+      position: relative
+
+    li:before
+      background: #888
+      display: inline-block
+      border-radius: 50%
+      content: ''
+      height: .4rem
+      width: .4rem
+      position: absolute
+      left: -0.8rem
+      top: 0.6rem
 
   @media print
     a
