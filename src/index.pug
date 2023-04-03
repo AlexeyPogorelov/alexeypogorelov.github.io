@@ -1,11 +1,13 @@
 - var isProduction = process.env.NODE_ENV === 'production';
 - var domain = isProduction ? 'https://alexeypogorelov.github.io/' : '/';
+//- var domain = './';
 - var imgRoot = domain + (process.env.NODE_ENV === 'production' ? 'src/img/' : 'img/');
+- var author = 'Oleksii Pohorielov';
 
 doctype html
 html(lang='en')
   head
-    title Oleksii Pohorielov
+    title=author
 
     //- meta
     meta(charset='UTF-8')
@@ -22,12 +24,12 @@ html(lang='en')
 
     //- open graph
     meta(property="og:type" content="website")
-    meta(property="og:title" content="Oleksii Pohorielov")
+    meta(property="og:title" content=author)
     meta(property="og:description" content="Front-end developer")
     meta(property="og:image" content=imgRoot + "avatar-300px.jpg")
     meta(property="og:url" content=domain)
     meta(name="twitter:image" content=imgRoot + "avatar-300px.jpg")
-    meta(name="twitter:title" content="Oleksii Pohorielov")
+    meta(name="twitter:title" content=author)
     meta(name="twitter:url" content=domain)
     meta(name="twitter:card" content="summary")
     meta(name="twitter:description" content="Front-end developer")
@@ -37,10 +39,10 @@ html(lang='en')
 
   body
     section
-      img.introduction__image(src=imgRoot + 'avatar-300px.jpg' alt="Oleksii Pohorielov")
+      img.introduction__image(src=imgRoot + 'avatar-300px.jpg' alt=author)
 
       .introduction__headers
-        h1 Oleksii Pohorielov
+        h1=author
         h4 (LEAD Software Engineer)
 
       ul.introduction
