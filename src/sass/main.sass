@@ -1,5 +1,21 @@
 $mobile-width: 800px
 
+// :root
+//   --test-color: red
+//   --dark-color: hsl(var(--hue), 100%, 9%)
+//   --light-color: hsl(var(--hue), 95%, 98%)
+//   --base: hsl(var(--hue), 95%, 50%)
+//   --complimentary1: hsl(var(--hue-complimentary1), 95%, 50%)
+//   --complimentary2: hsl(var(--hue-complimentary2), 95%, 50%)
+
+//   --font-family: "Poppins", system-ui
+
+//   --bg-gradient: linear-gradient(
+//     to bottom,
+//     hsl(var(--hue), 95%, 99%),
+//     hsl(var(--hue), 95%, 84%)
+//   )
+
 *
   box-sizing: border-box
 
@@ -13,11 +29,11 @@ html
     font-size: 12pt
 
 body
-  font: 1rem/1.6em Helvetica, Arial, sans-serif
+  font: 1rem/1.6em Poppins, Helvetica, Arial, sans-serif
   color: #888
   text-align: center
   @media screen
-    background-image: radial-gradient(circle, #ff922e 0%, #ffd79b 100%)
+    background-image: radial-gradient(circle, #fff 0%, #ffeed4 100%)
     // animation: background 16s linear 0ms infinite both
 
 h1
@@ -42,7 +58,7 @@ h2
     content: ''
     top: 50%
     position: absolute
-    border: 1px solid #d4d2d1
+    border: 1px solid #888
     z-index: -1
     @media (max-width: $mobile-width)
       content: none
@@ -86,17 +102,22 @@ a
     text-decoration: none
 
 section
-  background-color: #fff
   margin: 0 auto
   max-width: 60rem
-  page-break-before: always
   width: 80%
+
+  &:not(:first-of-type)
+    page-break-before: always
 
   @media screen
     box-shadow: 0 .9rem 2rem -.5rem #0004
     margin-bottom: 5rem
     margin-top: 5rem
     padding: 1rem 6% 6rem
+    background: rgba(255, 255, 255, 0.6)
+    box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1)
+    border-radius: 2rem
+    border: 1px solid rgba(255, 255, 255, 0.125)
 
   @media (max-width: $mobile-width)
     margin-bottom: 2rem
@@ -110,20 +131,38 @@ section
     width: 100%
 
 .slider
-  overflow: hidden
   padding-bottom: 1rem
   text-align: center
-  margin-left: -.3rem
   width: 18rem
+
   @media (max-width: $mobile-width)
     width: calc(100vw - 6rem)
     max-width: 18rem
+
+  &__wrapper
+    display: flex
+    gap: 3rem
+    overflow-x: auto
+    scroll-behavior: smooth
+    scroll-snap-type: x mandatory
+
+    &::-webkit-scrollbar
+      width: 10px
+      height: 10px
+    &::-webkit-scrollbar-thumb
+      background: black
+      border-radius: 10px
+    &::-webkit-scrollbar-track
+      background: transparent
+
   img
-    border: 3px solid #d4d2d1
     width: 18rem
+    scroll-snap-align: start
+
     @media (max-width: $mobile-width)
       width: calc(100vw - 6rem)
       max-width: 18rem
+
   input
     position: relative
     top: 18.8rem
@@ -162,12 +201,17 @@ section
       width: .6rem
     &:checked:before
       background: #c3c3c3
-  &__wrapper
-    display: flex
-    transition: transform 300ms ease-out
-  @for $i from 0 through 7
-    *:checked:nth-child(#{$i + 1}) ~ &__wrapper
-      transform: translate(#{$i * -100%}, -1.2rem)
+
+  //&__wrapper
+  //overflow-x: auto
+  //scroll-snap-type: x mandatory
+  //scroll-behavior: smooth
+  //   display: flex
+  //   transition: transform 300ms ease-out
+
+  //@for $i from 0 through 7
+  //*:checked:nth-child(#{$i + 1}) ~ &__wrapper
+  //  transform: translate(#{$i * -100%}, -1.2rem)
 
 
 //----------------------------------
@@ -288,9 +332,12 @@ $linkContent: " [ " attr(href) " ] "
   margin-top: 3rem
   @media (min-width: $mobile-width)
     display: flex
+    gap: 2rem
+
+  &:nth-of-type(odd)
+    flex-direction: row-reverse
 
   &__slider
-    padding-right: 2rem
     @media print
       display: none
 

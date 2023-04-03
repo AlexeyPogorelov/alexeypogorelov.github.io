@@ -58,10 +58,12 @@ html(lang='en')
           a(href="skype:alexey.pogorelov.music") alexey.pogorelov.music
 
       h2 Overview
-      p I'm a professional JavaScript developer with 8+ years of experience. I have superb skills in technologies related to JavaScript like Angular, React, NodeJS, jQuery, etc...
-      p I was a part of 50+ projects as either a front end or a back end developer and had a lot of experience in creating single-page web applications and REST APIs for various web products. I am always searching for the best practices and cutting edge technologies to be a more productive and skilled developer and get my code quality as high as I can. I'm also a big fan of the UX/UI design industry, so I can help to create usable and visually-appealing interfaces. In addition, I can do performance reviews, and web app optimizations to make sure that the user will get the best experience and your app, the best conversion.
-      p My portfolio speaks for itself. If you are looking for a web developer with design skills then I am the man.
+      p With over ten years of experience as a WEB developer, I possess expertise in various JavaScript-related technologies such as React, Vue, Angular, NodeJS, jQuery, and more. Throughout my career, I have been involved in over 20 projects as a full-stack expert and have gained extensive experience creating single-page applications and REST APIs for various web-based software.
+      p As a passionate UX/UI design industry follower, I am well-equipped to assist in drafting visually appealing and user-friendly interfaces that exceed clients' expectations. I have faced complex design challenges throughout my career, including creating responsive layouts, optimizing performance, and ensuring cross-browser compatibility. Furthermore, I understand the importance of balancing functionality with aesthetics and user experience and the significance of developing advanced animations in achieving a cutting-edge look and feel for any product. 
+      p I deeply understand the processes behind software development, from design to implementation through testing, and have developed strategies to build communication with technical and non-technical team members effectively.
+      p Of course, experience alone is not enough. As the industry evolves, front-end developers must stay current with emerging technologies and tools. So whether it's learning a new framework or keeping up with evolving best practices, I prioritize staying informed and adaptable in a fast-changing landscape. By drawing on past successes and learning from past mistakes, we can build more robust, more efficient, and more effective web applications that meet the needs of our clients and delight their users. I've seen many projects suffer from bloated code, which can slow development and create maintenance headaches. One of the critical advantages of experience is the ability to anticipate and avoid common pitfalls.
 
+    section
       h2 Skills
       ul.skills
         li JavaScript / TypeScript
@@ -80,7 +82,6 @@ html(lang='en')
         li Vagrant / Docker
         li Agile / Scrum / Kanban
 
-    section
       h2 Education
       h3 Master of Computer Applications (M.C.A.), Programming | Cherkasy National University named after Bogdan Khmelnitsky
       p Master of Computer Applications (M.C.A.), Programming | Cherkasy National University named after Bogdan Khmelnitsky
@@ -106,33 +107,51 @@ html(lang='en')
 
         li
           h3 WEB Developer for the 
-            a(href='http://www.perevorot.com/' target="_blank") Perevorot.
+            a(href='http://perevorot.com/' target="_blank") Perevorot.
           p In this period, I gained considerable experience working with back-end technologies. I was a part of the full-stack team, and we built a few MVPs for a local startup. We worked in a small team, including 3 - 4 developers, a designer and project manager. This was a big leap for me as a professional WEB developer. I gained a sound understanding of how client / server interactions work, why the code structure is important, how to create code that is easy to support and how to support someone else's code. In addition, I gained experience working in a SCRUM environment.
           h4 January 2016 - January 2017
 
         li
           h3 Full Stack Developer at 
-            a(href='https://www.safervpn.com/' target="_blank") SaferSoftware.
-          p JS and PHP developer at SaferSoftware team. I've been working on few projects including <a href='https://www.safervpn.com/' target="_blank">safervpn.com</a> and <a href='https://www.perimeter81.com/' target="_blank">perimeter81.com</a> websites and Perimeter81 front end application written using React. I worked in a great environment remotely and in Tel Aviv office with more that 10 members.
+            a(href='https://safervpn.com/' target="_blank") SaferSoftware.
+          p JS and PHP developer at SaferSoftware team. I've been working on few projects including <a href='https://safervpn.com/' target="_blank">safervpn.com</a> and <a href='https://perimeter81.com/' target="_blank">perimeter81.com</a> websites and Perimeter81 front end application written using React. I worked in a great environment remotely and in Tel Aviv office with more that 10 members.
           h4 January 2017 - September 2019
 
         li
           h3 React Developer at 
-            a(href='https://www.sphereinc.com/' target="_blank") Sphere software.
+            a(href='https://sphereinc.com/' target="_blank") Sphere software.
           p The team that I worked for included PM, QA and four front end developers. My role was to support front end app written using Preact. I can describe the environment as high professional and very motivated. I was fired after pandemic starts.
           h4 September 2019 - March 2020
 
         li
-          h3 Front End Developer for 
+          h3 Front End Developer at 
             a(href='http://agreed.io/' target="_blank") Agreed.
           p This time I worked through Upwork directly for the product owners. I've been working with UI kit for the new SPA. Self management, the latest technologies stack, startup culture. I like to be a part of the growing product and always happy to improve it providing new ideas and quality code.
           h4 March 2020 - February 2021
+
+        li
+          h3 AdTech development for 
+            a(href='https://dowjones.com/' target="_blank") Dow Jones Media Group.
+          p AdTech development for Dow Jones Media Group
+          h4 June 2021 - January 2022
+
+        li
+          h3 Front End Developer at 
+            a(href='http://godaddy.com/' target="_blank") GoDaddy.
+          p Integrate components to the website and develop new UI kit for storybook.
+          h4 January 2022 - March 2022
+
+        li
+          h3 Front End Developer at 
+            a(href='http://epicgames.com/' target="_blank") Epic games.
+          p I worked with the SSP (Self-service Support Portal) team and contributed to a dark theme implementation corresponding to the rest of the Epic product's UI
+          h4 March 2022 - April 2023
 
     section.projects
 
       mixin slider(images, id)
         .slider
-          each src, index in images
+          // each src, index in images
             input(type="radio", name=id, checked=index === 0)
           .slider__wrapper
             each src, index in images
@@ -155,15 +174,23 @@ html(lang='en')
 
       ul
 
-        +project('Groupon', 'https://www.groupon.com/', ['groupon-1.jpg', 'groupon-2.jpg', 'groupon-3.jpg'])
-          h4 Preact, Styled Components, Preact Hooks
-          p Groupon is an American global e-commerce marketplace connecting subscribers with local merchants by offering activities, travel, goods and services in 15 countries. I was a part of a booking team that is responsible for pre-purchase and post-purchase screens and the booking calendar. The important part was communication with the design team and product owners.
+        +project('Epic games', 'https://epicgames.com/')
+          h4 React, Express, Zendesk Garden, Zendesk apps
+          p As a part of the PST (Player Support Tool) team, I helped to fix numerous issues across the APP. PST is software that improves customer support efficiency by providing specialized tools that implement optimal agent workflows.
+          p Then I worked with the SSP (Self-service Support Portal) team and contributed to a dark theme implementation corresponding to the rest of the Epic product's UI. A big part of the redesign was improving website accessibility by following the latest W3C standards. The other feature I was involved in was request classification, which helps minimize the number of tickets by directing relevant inquiries toward the FAQ or self-service sections. Also, as a result of my work, is significant test coverage improvement.
+          p In addition, I made a few new applications for the Zendesk Help center. Zendesk provides a solution for managing customer support requests, allowing agents to do fast, personalized, and valuable customer support anywhere, anytime. To do that efficiently, I spent considerable time learning Zendesk's official documentation and open-source projects based on the same technology and picked best practices for my implementations. As a result, I have a new experience with third-party integrations.
+          p Overall my primary responsibility was developing and maintaining React components of web applications. I worked closely with designers, back-end developers, the QA team, and BA to ensure that all application aspects functioned seamlessly and met the client's requirements. The code review is a way to write clean, efficient, and reusable code.
+          p The last point I want to highlight is mentoring and training developers, guiding best practices and helping maintain coding standards across the team. My experience in the UX/UI design industry was a valuable asset in creating a usable and visually appealing interface.
 
-        +project('Perimeter 81', 'https://www.perimeter81.com/', ['perimeter81-1.jpg', 'perimeter81-2.jpg', 'perimeter81-3.jpg', 'perimeter81-4.jpg', 'perimeter81-5.jpg'])
+        +project('Groupon', 'https://groupon.com/', ['groupon-1.jpg', 'groupon-2.jpg'])
+          h4 Preact, Styled Components, Preact Hooks
+          p Groupon is an American global e-commerce marketplace connecting subscribers with local merchants by offering activities, travel, goods and services in 15 countries. I was a part of a booking team that is responsible for pre-purchase and post-purchase screens, including the booking calendar. The team comprised a project manager, a quality assurance specialist, and four front-end developers. My primary responsibility was to support the front-end application, which uses Preact. The team was highly skilled and motivated, and I found the work environment very professional. Unfortunately, booking functionality is not a priority for development due to the pandemic.
+
+        +project('Perimeter 81', 'https://perimeter81.com/', ['perimeter81-1.jpg', 'perimeter81-2.jpg', 'perimeter81-3.jpg', 'perimeter81-4.jpg', 'perimeter81-5.jpg'])
           h4 React, Redux, Docker, Postman
           p Perimeter 81 is an Israeli cloud and network security company that develops secure remote networks, based on the zero trust architecture, for organizations. Its technology replaces legacy security appliances like VPNs and firewalls. Perimeter 81 allows users to host their own secure VPN box with a static IP address without the hassle of managing it and keeping it up-to-date ourselves. There aren’t any other solutions on the market that allow us to do this easily and cost-effectively. My goal was to create UI components for the SPA and some API integrations.
 
-        +project('SaferVPN', 'https://www.safervpn.com/', ['safervpn-1.jpg', 'safervpn-2.jpg', 'safervpn-3.jpg', 'safervpn-4.jpg', 'safervpn-5.jpg'])
+        +project('SaferVPN', 'https://safervpn.com/', ['safervpn-1.jpg', 'safervpn-2.jpg', 'safervpn-3.jpg', 'safervpn-4.jpg', 'safervpn-5.jpg'])
             h4 Laravel, Blade, Foundation, Bluesnap, React, Stripe
             p SaferVPN is one of the best VPN services. The SaferVPN's mission is to provide secure, private, and uncensored Internet access to anyone, anywhere. I did a full stack development working in small team included 3 - 5 persons. The hardest part for me was the pricing page. I did the integrations with payments systems and tracking services to get statistics and good user experience. I'm happy that I was a part of this project.
 
@@ -171,7 +198,7 @@ html(lang='en')
           h4 React, Node JS, MySQL, Docker
           p Full stack development for SmartExtreme. This website allows you to find best time and place for active sports such as Windsurfing, Kitesurfing, Snowkiting, etc.
 
-        +project('LeanFM', 'http://www.leanfmtech.com/', ['leanfm-1.jpg', 'leanfm-2.jpg', 'leanfm-3.jpg'])
+        +project('LeanFM', 'http://leanfmtech.com/', ['leanfm-1.jpg', 'leanfm-2.jpg', 'leanfm-3.jpg'])
           h4 CSS3, jQuery, React, Three.js, Node JS, Knex
           p LeanFM's Visual Information Hub provides facility managers with FAST and INTUITIVE access to information they need when needed to help prioritize work, understand problems and eliminate physical information search time. We integrate your management information systems and building automation feed with Building Information Models (BIM) to create the world's first visual information hub for facility managers and operators. I did UI for the WEB app using own state management library. LeanFM restricted to use third party code in their product.
 
@@ -179,10 +206,10 @@ html(lang='en')
           h4 CSS3, jQuery, React, Node JS, JSON schema
           p
             | Full stack development for 
-            a(href='http://www.perevorot.com/' target="_blank") Perevorot.
+            a(href='http://perevorot.com/' target="_blank") Perevorot.
             |  iBOX - one of the largest network of payment terminals in Ukraine. I created front end for the <a href='https://ibox.ua/' _target="_blank">iBox</a> website, React app for the terminals and API service with ability to provide service and log transitions.
 
-        +project('APPY', 'https://www.appysaude.co.ao/', ['appysaude-1.jpg', 'appysaude-2.jpg', 'appysaude-3.jpg', 'appysaude-4.jpg'])
+        +project('APPY', 'https://appysaude.co.ao/', ['appysaude-1.jpg', 'appysaude-2.jpg', 'appysaude-3.jpg', 'appysaude-4.jpg'])
           h4 CSS3, jQuery, Angular 4, Google Maps API
           p Front-end development using Angular. The site is adapted for desktops and mobile devices.
 
@@ -198,7 +225,7 @@ html(lang='en')
           h4 SASS, Jade, jQuery, Laravel
           p Bambook Academy is a school that specialized in language courses of Polish and Czech. I created a multi-page website that has lots of stunning animations made with WOW.js and animate.css. It is worth mentioning that AJAX was used to make forms work without a page reload and to optimize data transmission as it dramatically impact user experience.
 
-        +project('Grow with LEAF', 'https://www.getleaf.co/', ['getleaf-1.jpg', 'getleaf-2.jpg', 'getleaf-3.jpg', 'getleaf-4.jpg', 'getleaf-5.jpg'])
+        +project('Grow with LEAF', 'https://getleaf.co/', ['getleaf-1.jpg', 'getleaf-2.jpg', 'getleaf-3.jpg', 'getleaf-4.jpg', 'getleaf-5.jpg'])
           h4 SASS, Jade, jQuery, Video API
           p LEAF is a plug-n-plant system that automatically grows plants and food and is controlled by your smartphone. Think of it as a beautiful mini fridge that stocks itself with high quality, pesticide free, natural herbs and food. I created the simple landing page with an interactive map. I worked with YouTube API and HTML5 video to get video player work. The eye-catching thing is a fully interactive map. The page is fully responsive and adapted for mobile devices.
 
@@ -236,11 +263,11 @@ html(lang='en')
             include ./img/icons/codepen-logo.svg
 
         li
-          a(href="https://www.instagram.com/pogorelov_music" target="_blank")
+          a(href="https://instagram.com/pogorelov_music" target="_blank")
             include ./img/icons/instagram-logo.svg
 
         li
-          a(href="https://www.youtube.com/user/AlexHookMusic" target="_blank")
+          a(href="https://youtube.com/user/AlexHookMusic" target="_blank")
             include ./img/icons/youtube-logo.svg
 
         li
@@ -248,6 +275,6 @@ html(lang='en')
             include ./img/icons/soundcloud-logo.svg
 
         li
-          a(href="https://www.upwork.com/o/profiles/users/~01f863094d8472f9a6/" target="_blank")
+          a(href="https://upwork.com/o/profiles/users/~01f863094d8472f9a6/" target="_blank")
             include ./img/icons/upwork-logo.svg
 
