@@ -153,11 +153,14 @@ html(lang='en')
 
       mixin slider(images, id)
         .slider
-          // each src, index in images
-            input(type="radio", name=id, checked=index === 0)
           .slider__wrapper
             each src, index in images
+              //- img(src=imgRoot + 'projects/compressed/' + src, loading=index='lazy')
               img(src=imgRoot + 'projects/compressed/' + src, loading=index === 0 ? 'eager' : 'lazy')
+          .slider__pages
+              each src, index in images
+                //- input(type="radio", name=id, checked=index === 0)
+                .slider__page(checked=index === 0)
 
       mixin project(title, url, images)
         li.project

@@ -1,5 +1,7 @@
 $mobile-width: 1100px
 $slider-width: 22rem
+$animation-time: 400ms
+$color-1: #565656
 
 *
   box-sizing: border-box
@@ -23,7 +25,7 @@ body
     animation: background 16s linear 0ms infinite both
 
 h1
-  color: #565656
+  color: $color-1
   font-size: 2.8rem
   line-height: 1.2em
   letter-spacing: 0.15em
@@ -34,8 +36,8 @@ h1
 h2
   text-transform: uppercase
   position: relative
-  color: #565656
-  margin: 4em 0 2em
+  color: $color-1
+  margin: 6em 0 3em
   font-size: 1.6em
   @media (max-width: $mobile-width)
     margin: 2em 0 1em
@@ -56,9 +58,11 @@ h2
     right: 0
     left: 60%
     left: calc(50% + 200px)
+  &:first-child
+    margin-top: 5rem
 
 h3
-  color: #565656
+  color: $color-1
   margin: 2em 0 1em
   text-transform: uppercase
   a
@@ -78,7 +82,7 @@ li
   vertical-align: top
 
 a
-  color: #565656
+  color: $color-1
   font-weight: bold
 
   &:hover
@@ -98,7 +102,7 @@ section
   @media screen
     margin-bottom: 5rem
     margin-top: 5rem
-    padding: 1rem 6% 6rem
+    padding: 1rem 6% 4rem
     background: rgba(255, 255, 255, 0.6)
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1)
     border-radius: 2rem
@@ -116,20 +120,21 @@ section
     width: 100%
 
 .slider
+  overflow: hidden
   text-align: center
-  width: $slider-width
   box-shadow: 0 .9rem 2rem -.5rem #0001
+  height: 22rem
+  width: $slider-width
 
   border-radius: 2rem
-  transition: border-radius 600ms ease-out, filter 600ms ease-out, opacity 600ms ease-out, transform 600ms ease-out
-  overflow: hidden
-  filter: blur(4px) grayscale(1)
-  transform: scale(0.9)
-  opacity: .9
+  transition: border-radius $animation-time ease-out, filter $animation-time ease-out, opacity $animation-time ease-out, transform $animation-time ease-in-out
+  filter: grayscale(1)
+  transform: scale(0.7)
+  opacity: .8
 
   @at-root .project:hover &
     border-radius: 0rem
-    filter: blur(0px) grayscale(0)
+    filter: grayscale(0)
     transform: scale(1)
     opacity: 1
 
@@ -139,73 +144,99 @@ section
     max-width: $slider-width
     padding-bottom: 2rem
     border-radius: 0rem
-    filter: blur(0px) grayscale(0)
+    filter: grayscale(0)
     transform: scale(1)
     opacity: 1
 
   &__wrapper
-    display: flex
-    gap: 3rem
-    overflow-x: auto
+    height: $slider-width + .1rem
+    // gap: 3rem
+    overflow: auto
+    position: relative
     scroll-behavior: smooth
-    scroll-snap-type: x mandatory
+    scroll-snap-type: y mandatory
 
+    @media (max-width: $mobile-width)
+      display: flex
+      scroll-snap-type: x mandatory
+
+    &::after
+      // content: ''
+      left: 0
+      right: 0
+      bottom: 0
+      height: .3rem
+      background: linear-gradient(#fff0 0, #fffe 100%)
+      position: fixed
     &::-webkit-scrollbar
-      width: 10px
-      height: 10px
+      width: 2px
+      height: 2px
     &::-webkit-scrollbar-thumb
       background: black
       border-radius: 10px
     &::-webkit-scrollbar-track
       background: transparent
 
-  img
-    width: $slider-width
-    scroll-snap-align: start
-    object-fit: cover
+  &__pages
+    // bottom: 0
+    pointer-events: none
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    left: -.8rem
+    position: absolute
+    top: -.1rem
+    opacity: 0
+    transition: opacity $animation-time ease-in-out, transform $animation-time ease-in-out
+    transform: translateY(1rem)
+    @at-root .project:hover &
+      opacity: 1
+      transform: translateY(0rem)
+      transition-delay: 200ms
 
     @media (max-width: $mobile-width)
-      width: calc(100vw - 6rem)
-      max-width: $slider-width
+      flex-direction: row
+      left: -.2rem
+      top: -1rem
+      opacity: 1
+      transform: translateY(0rem)
 
-  input
-    position: relative
-    top: 18.8rem
-    width: 1.2rem
-    z-index: 1
-    @media (max-width: $mobile-width)
-      top: 15rem
+  &__page
+    // background: #fff7
+    z-index: 2
+    height: 100%
+    height: 12px
+    width: 12px
+    padding: 2px
     &:before,
     &:after
-      border-radius: 50%
       box-sizing: border-box
-      cursor: pointer
       display: block
     &:before
-      background: #f0f0f0
-      // border: 1px solid #ededed
-      // box-shadow: inset 0 0 10px rgba(0,200,200,0.2)
+      background: transparent
+      border: 2px solid $color-1
       content: ''
-      height: 1.2rem
-      width: 1.2rem
-      margin-top: -.2rem
-    &:after
-      content: ''
-      margin-left: .3rem
-      margin-top: -.9rem
-      height: .6rem
-      width: .6rem
-      background: #fff
-      box-shadow: 0 0 10px rgba(0,0,0,0.2)
-    &:checked:after
-      background: #939393
-      content: ''
-      margin-left: .3rem
-      margin-top: -.9rem
-      height: .6rem
-      width: .6rem
-    &:checked:before
-      background: #c3c3c3
+      height: 8px
+      width: 8px
+      border-radius: 999px
+    // &:first-child
+      border-top-left-radius: 4px
+      border-top-right-radius: 4px
+    // &:last-child
+      border-bottom-left-radius: 4px
+      border-bottom-right-radius: 4px
+    &[checked]:before
+      background: $color-1
+
+  img
+    display: block
+    object-fit: cover
+    scroll-snap-align: start
+    width: 100%
+
+    @media (max-width: $mobile-width)
+      max-width: $slider-width
+      width: calc(100vw - 5.9rem)
 
   //&__wrapper
   //overflow-x: auto
@@ -277,7 +308,7 @@ section
 .skills
   text-align: left
   li
-    color: #565656
+    color: $color-1
     text-transform: uppercase
     margin: 0 .5em .5em 0
     font-weight: bold
@@ -384,8 +415,9 @@ $linkContent: " [ " attr(href) " ] "
 // SOCIALS
 //----------------------------------
 .socials
-  text-align: center
+  margin-bottom: 0
   margin-top: 4rem
+  text-align: center
   @media print
     text-align: left
 
@@ -414,11 +446,11 @@ $linkContent: " [ " attr(href) " ] "
 
 @keyframes background
   0%
-    background: #{"hsl(80, 10%, 90%)"}
+    background: #{"hsl(80, 20%, 90%)"}
 
   50%
-    background: #{"hsl(180, 10%, 90%)"}
+    background: #{"hsl(180, 20%, 90%)"}
 
   100%
-    background: #{"hsl(80, 10%, 90%)"}
+    background: #{"hsl(80, 20%, 90%)"}
 
