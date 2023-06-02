@@ -32,7 +32,7 @@ html(lang='en')
     meta(name="twitter:title" content=author)
     meta(name="twitter:url" content=domain)
     meta(name="twitter:card" content="summary")
-    meta(name="twitter:description" content="Front-end developer")
+    meta(name="twitter:description" content="Full-Stack developer")
 
     style
       include ../dist/css/main.css
@@ -164,7 +164,7 @@ html(lang='en')
 
       mixin project(title, url, images)
         li.project
-          if images
+          //- if images
             .project__slider
               +slider(images, title)
           .project__info
